@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useContext, useRef } from "react";
 import { useDispatch } from "react-redux";
 import { authActions } from "../store/auth-slice";
+import { Link, useNavigate } from "react-router-dom";
+import ModalContext from "../store/modal-context";
 
 const Signin = () => {
+  const modalCtx = useContext(ModalContext);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const emailSignInRef = useRef();
   const pswrdSignInRef = useRef();
@@ -38,9 +42,9 @@ const Signin = () => {
         );
       } catch (error) {
         modalCtx.showModal({
-            title: "Sign In Failed",
-            message: error.message || "Something went wrong!",
-          });
+          title: "Sign In Failed",
+          message: error.message || "Something went wrong!",
+        });
       }
     };
     SignInHandler();

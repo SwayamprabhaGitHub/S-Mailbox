@@ -1,10 +1,14 @@
 import React from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import Signup from "./components/Signup";
+import SignUp from "./components/Signup";
+import Signin from "./components/Signin";
+import ForgotPasswordPage from "./components/ForgotPassword";
 
 
 const router = createBrowserRouter([
-  {path: '/', element: <Signup />}
+  {path: '/', element: <Signin />},
+  {path: '/signup', element: <SignUp />},
+  {path: '/forgotpassword', element: <ForgotPasswordPage />}
 
 ])
 
